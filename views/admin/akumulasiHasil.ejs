@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Akumulasi Penilaian</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:300' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/admin/dashboard.css">
+
+    <script src="/js/akumulasiHasil.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="body">
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-right d-flex" style="margin-left: auto;">
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                        id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>Admin</strong>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2"
+                        style="background: linear-gradient(180deg, #6CAFFF 1.5%, #FFFFFF 92.13%);">
+                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                        <li>
+                            <hr>
+                        </li>
+                        <li><a type="button"  class="dropdown-item" id="logout">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" style="z-index: 20;">
+            <div class="sidebar-title mx-auto" style="font-family: 'Open Sans Condensed';">
+                <span class="material-icons-outlined" onclick="closeSidebar()" style="color: #EBEBEB;">close</span>
+                <a href="dashboard.html"
+                    class="d-flex align-items-center mt-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="/pemprovsumbar.png" width="60" height="32" class="img-fluid" alt="...">
+                    <h6 class="mt-2"
+                        style="color: white; margin-left: 10px; font-size: 24px; letter-spacing: 2px; font-weight: bolder; ">
+                        BIORASI<br><span style="font-size: 16px; font-weight:bold;">Pegawai Terbaik</span> </h6>
+                </a>
+            </div>
+            <hr class="mb-4">
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="sidebar-list-item">
+                    <a href="/dashboardAdmin" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/penilaian" class="nav-link link-dark mt-1" style="letter-spacing: 0.8px; font-weight: 700;">
+                        Kriteria Penilaian
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/pegawai" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Pegawai
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/generatePegawai" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Generate Pegawai
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/statusPenilaian" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Status Penilaian
+                    </a>
+                </li>
+                <li style="padding: 2%;">
+                    <a href="/akumulasiHasil" class="nav-link dashboard mt-1" aria-current="page"
+                        style="letter-spacing: 0.8px; font-weight: 700;font-size: 14px;">
+                        Akumulasi Hasil
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/pegawaiTerbaikViews" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Pegawai Terbaik
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/pegawaiTerburukViews" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Pegawai Terburuk
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-container">
+            <h3 class="fw-bold">Akumulasi Penilaian Pegawai</h3>
+            <p>Lakukan akumulasi penilaian untuk mendapatkan pegawai terbaik</p>
+
+            <div style="display: flex; align-items: center; flex-direction: row;">
+                <select class="form-select d-flex mt-5 me-2" aria-label="Default select example"
+                    style="background-color: #EBEBEB; border-radius: 8px; width: 300px;  margin-left: auto;"
+                    id="bulanPenilaian">
+                    <option selected>Pilih Bulan</option>
+                    <option value="Januari">Januari</option>
+                    <option value="Februari">Februari</option>
+                    <option value="Maret">Maret</option>
+                    <option value="April">April</option>
+                    <option value="Mei">Mei</option>
+                    <option value="Juni">Juni</option>
+                    <option value="Juli">Juli</option>
+                    <option value="Agustus">Agustus</option>
+                    <option value="September">September</option>
+                    <option value="Oktober">Oktober</option>
+                    <option value="November">November</option>
+                    <option value="Desember">Desember</option>
+                </select>
+
+                <button type="submit" class="btn d-flex mt-5"
+                    style="background: #408AFF; color: #FFFFFF; border-radius: 8px;" id="akumulasiPenilaian">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                        viewBox="0,0,256,256">
+                        <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <g transform="scale(8,8)">
+                                <path
+                                    d="M16,4c-5.11328,0 -9.38281,3.16016 -11.125,7.625l1.84375,0.75c1.45703,-3.73437 4.99219,-6.375 9.28125,-6.375c3.24219,0 6.13281,1.58984 7.9375,4h-3.9375v2h7v-7h-2v3.09375c-2.19141,-2.51172 -5.42969,-4.09375 -9,-4.09375zM25.28125,19.625c-1.45703,3.73438 -4.99219,6.375 -9.28125,6.375c-3.27734,0 -6.15625,-1.61328 -7.96875,-4h3.96875v-2h-7v7h2v-3.09375c2.1875,2.48047 5.39453,4.09375 9,4.09375c5.11328,0 9.38281,-3.16016 11.125,-7.625z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                    &nbsp; Akumulasi Penilaian
+                </button>
+            </div>
+
+            <table class="table table-borderless mt-5" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <thead>
+                    <tr style="background-color: #FFB500;">
+                        <th class="col-1" style="border-top-left-radius: 14px;">No</th>
+                        <th class="col-3">NIP</th>
+                        <th class="col-4">Nama</th>
+                        <th class="col-2">Golongan</th>
+                        <th class="col-2" style="border-top-right-radius: 14px;">Total Penilaian</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td colspan="5" class="text-center">Silahkan Pilih Bulan Akumulasi Penilaian</td>
+                    <!-- Data Akumulasi Penilaian -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+    <script src="/js/scripts.js"></script>
+
+</body>
+
+</html>

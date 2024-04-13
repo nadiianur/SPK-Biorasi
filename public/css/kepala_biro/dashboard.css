@@ -1,0 +1,71 @@
+.navbar {
+    background: linear-gradient(307deg, rgba(188, 255, 187, 1) 13%, rgba(58, 134, 255, 1) 100%);
+}
+
+.nav-title {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Open Sans Condensed';
+    color: white;
+    margin-right: auto;
+    letter-spacing: 2px;
+}
+
+.dropdown-menu {
+    right: 0;
+    left: auto;
+    background: linear-gradient(180deg, #6CAFFF 0%, #FFFF 100%);
+}
+
+main {
+    padding: 4%;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.sub-title {
+    font-size: 1.3rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.card {
+    height: max-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 8%;
+    height: 80%;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+.ic-card {
+    margin-top: 6%;
+    margin-right: 4%;
+}
+
+.konten {
+    color: #000;
+    font-family: 'Poppins';
+    font-style: normal;
+
+}
+
+.row {
+    color: #000;
+    font-family: 'Poppins';
+    margin-left: 10%;
+    margin-right: 10%;
+}

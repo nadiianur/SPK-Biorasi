@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #FFFF 90%, #C5D9FF 110%);
+    background-attachment: fixed;
+}
+
+.navbar {
+    background: linear-gradient(307deg, rgba(188, 255, 187, 1) 13%, rgba(58, 134, 255, 1) 100%);
+}
+
+.dropdown-menu {
+    right: 0;
+    left: auto;
+    background: linear-gradient(180deg, #6CAFFF 0%, #FFFF 100%);
+    color: black;
+}
+
+.nav-title {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Open Sans Condensed';
+    color: white;
+    margin-right: auto;
+    letter-spacing: 2px;
+}
+
+main {
+    padding: 3% 3% 4% 3%
+}
+
+table {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.div-table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto 0;
+}
+
+.form-select {
+    background-color: #EBEBEB;
+    border-radius: 8px;
+    width: 200px;
+}
+
+.btn-akumulasi {
+    background: #408AFF;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+.main-container {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0 0 8%;
+}
+
+.in-profile{
+    border-radius: 10px; 
+    background: #EBEBEB;
+}
+
+.profile{
+    width: 60%; 
+    height: 60%;
+    z-index: 10; 
+    max-width: 60%;
+    max-height: 60%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover; 
+}
+
+.save{
+    border-radius: 8px; 
+    background: #FA6301; 
+    color: white; 
+    font-weight: 500; 
+    width: 20%; 
+    text-align: center;
+}

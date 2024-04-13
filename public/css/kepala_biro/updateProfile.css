@@ -1,0 +1,77 @@
+.navbar {
+    background: linear-gradient(307deg, rgba(188, 255, 187, 1) 13%, rgba(58, 134, 255, 1) 100%);
+}
+
+.nav-title {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Open Sans Condensed';
+    color: white;
+    margin-right: auto;
+    letter-spacing: 2px;
+}
+
+.dropdown-menu {
+    right: 0;
+    left: auto;
+    background: linear-gradient(180deg, #6CAFFF 0%, #FFFF 100%);
+}
+
+main {
+    padding: 4%;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.sub-title {
+    font-size: 1.3rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.konten {
+    color: #000;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.main-container {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 4% 0 4%;
+}
+
+.form-select {
+    background-color: #EBEBEB;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.in-profile{
+    border-radius: 8px; 
+    background: #EBEBEB;
+}
+
+.profile{
+    width: 60%; 
+    height: 60%;
+    z-index: 10; 
+    max-width: 60%;
+    max-height: 60%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover; 
+}
+
+.save{
+    border-radius: 8px; 
+    background: #FA6301; 
+    color: white; 
+    font-weight: 500; 
+    width: 20%; 
+    text-align: center;
+}

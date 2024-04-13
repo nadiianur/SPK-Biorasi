@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Riwayat Akumulasi</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/kepala_bagian/akumulasi.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:700' rel='stylesheet'>
+    <script src="/js/riwayatAkumulasi.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Ninth navbar example">
+        <div class="container-xl">
+            <a href="/dashboardKabag"
+                class="navbar-brand d-flex align-items-center mt-1 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="/pemprovsumbar.png" width="42" height="42" class="img-fluid" alt="Pemprov Sumbar">
+                <span class="fs-4"></span>
+                <h6 class="mt-1 ms-2 nav-title">
+                    BIORASI
+                    <br><span style="font-size: 14px;">Pegawai Terbaik</span></h6>
+            </a>
+            <div class="dropdown text-end">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="/user.png" alt="User Image" width="50%" height="50%">
+                </a>
+                <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="/dashboardKabag">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="/profileKabag">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a type="button"  class="dropdown-item" id="logout">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="vh-100">
+        <h5 class="mt-2 ms-3" style="font-weight: 800;">Riwayat Akumulasi Penilaian</h5>
+        <p class="mt-2 ms-3">Riwayat akumulasi untuk melihat nilai Pegawai Bagian.</p>
+        <div class="div-table">
+            <div style="display: flex; flex-direction: row; margin-left: auto;">
+                <select class="form-select d-flex mt-5 me-2" aria-label="Default select example" id="bulan">
+                    <option selected>Pilih Bulan</option>
+                    <option value="Januari">Januari</option>
+                    <option value="Februari">Februari</option>
+                    <option value="Maret">Maret</option>
+                    <option value="April">April</option>
+                    <option value="Mei">Mei</option>
+                    <option value="Juni">Juni</option>
+                    <option value="Juli">Juli</option>
+                    <option value="Agustus">Agustus</option>
+                    <option value="September">September</option>
+                    <option value="Oktober">Oktober</option>
+                    <option value="November">November</option>
+                    <option value="Desember">Desember</option>
+                </select>
+
+                <select class="form-select d-flex mt-5 me-2" aria-label="Default select example" id="tahun">
+                    <option selected>Pilih Tahun</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                </select>
+
+                <button type="button" class="btn btn-akumulasi d-flex mt-5" id="sendRiwayat">
+                    <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="40" height="40" fill="url(#pattern0)" />
+                        <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0_589_185" transform="scale(0.0333333)" />
+                            </pattern>
+                            <image id="image0_589_185" width="30" height="30"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAd0lEQVR4nO3TwQmAMAxA0a7iGIKuIq7ghsXiDI7zRUEPHhRjahTzbj19EtIQ3JsAERiB5unwxjwMdEBpEV6Yh4EWKCzCq2gVxsNivuqZHxe5vxNQAfXBO1v4lEZwQC49Nune98L/wb2jkh8Zyq6Ek2K3Fy7eBRUTFHKAG472EnIAAAAASUVORK5CYII=" />
+                        </defs>
+                    </svg>
+                    &nbsp; Riwayat Penilaian
+                </button>
+            </div>
+
+            <table class="table table-borderless mt-5">
+                <thead>
+                    <tr style="background-color: #FFB500; text-align: center;">
+                        <th class="col-1" style="border-top-left-radius: 10px;">No</th>
+                        <th class="col-2">NIP</th>
+                        <th class="col-3">Nama</th>
+                        <th class="col-2">Golongan</th>
+                        <th class="col-2">Total Penilaian</th>
+                        <th class="col-2" style="border-top-right-radius: 10px;">Periode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td colspan="6" class="text-center">Silahkan Pilih Bulan Akumulasi Penilaian</td>
+                    <!-- Data Akumulasi Penilaian -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form Penilaian</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:700' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/karyawan/nav.css">
+    <script src="/js/formPenilaianKaryawan.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid ms-3 me-3">
+            <a href="/homePegawai"
+                class="d-flex align-items-center mt-1 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="/pemprovsumbar.png" width="40" height="40" class="img-fluid" alt="pemprovsumbar">
+                <span class="fs-4"></span>
+                <h6 class="nav-title mt-1"> BIORASI<br><span style="font-size: 14px;">Pegawai Terbaik</span></h6>
+            </a>
+            <div class="btn-group">
+                <svg class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                    xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                    viewBox="0 0 24 24" width="24px" fill="#000000">
+                    <g>
+                        <rect fill="none" height="24" width="24" />
+                    </g>
+                    <g>
+                        <g>
+                            <g>
+                                <path d="M20,9H4v2h16V9z M4,15h16v-2H4V15z" />
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <ul class="dropdown-menu dropdown-menu-end text-small shadow">
+                    <li><a class="dropdown-item" href="/homePegawai">Home</a></li>
+                    <li><a class="dropdown-item" href="/profilePegawai">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a type="button" class="dropdown-item" id="logout">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main" style="padding: 2%; font-family: 'Poppins';">
+        <h5 class="mt-2 ms-3" style="font-weight: 800;">Form Penilaian</h5>
+        <br>
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <form>
+                <fieldset disabled>
+                    <div class="mb-3">
+                        <label for="disabledTextInpu" class="form-label fw-bold">NIP</label>
+                        <input type="text" id="nip" class="form-control" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label fw-bold">Nama</label>
+                        <input type="text" id="nama" class="form-control" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label fw-bold">Golongan</label>
+                        <input type="text" id="golongan" class="form-control" placeholder="">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="mt-4" style="padding: 5%;">
+            <h6 class="fw-bold" style="font-size: 18px;">Penilaian</h6>
+            <form class="mb-4" action="" id="penilaian">
+                <fieldset>
+                    <p class="mt-3 fw-bold" style="margin-bottom: -1px;">1. Disiplin</p>
+                    <label for="" style="font-size: 90%; display: block;">
+                        <input class="me-2 mt-2" type="radio" name="disiplin" id="disiplin" value="5">Secara konsisten,
+                        selalu hadir tepat
+                        waktu, dengan tingkat absensi 0%
+                    </label>
+                    <label for="" style="font-size: 90%; display: block;">
+                        <input class="me-2 mt-2" type="radio" name="disiplin" id="disiplin" value="4">Selalu hadir tepat
+                        waktu, dengan
+                        tingkat absensi < 5% </label> <label for="" style="font-size: 90%; display: block;">
+                            <input class="me-2 mt-2" type="radio" name="disiplin" id="disiplin" value="3">Selalu hadir
+                            tetapi kadang
+                            terlambat dan sesekali absen di beberapa kondisi yang bisa diberi toleransi
+                    </label>
+                    <label for="" style="font-size: 90%; display: block;">
+                        <input class="me-2 mt-2" type="radio" name="disiplin" id="disiplin" value="2">Tingkat absensi
+                        >10% dan datang
+                        kadang terlambat
+                    </label>
+                    <label for="" style="font-size: 90%; display: block;">
+                        <input class="me-2 mt-2" type="radio" name="disiplin" id="disiplin" value="1">Sering datang
+                        terlambat dan absen
+                        tanpa alasan yang jelas
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <p class="mt-3 fw-bold" style="margin-bottom: -1px; ">2. Tanggung Jawab</p>
+                    <label for="" style="font-size: 90%; display: block;">
+                        <input class="me-2 mt-2" type="radio" name="tanggungjawab" id="tanggungjawab" value="5">Selalu
+                        mengerjakan tugas yang diberikan, mengumpulkan tepat waktu, serta mengerjakan sesuai dengan
+                        instruksi yang diberikan
+                    </label>
+                    <label for="" style="font-size: 90%; display: block;">
+                        <input class="me-2 mt-2" type="radio" name="tanggungjawab" id="tanggungjawab" value="4">Selalu
+                        mengerjakan tugas yang diberikan dengan tepat waktu meskipun sesekali melakukan kesalahan
+                    </label>
+                    <label for="" style="font-size: 90%; display: block;">
+                        <input class="me-2 mt-2" type="radio" name="tanggungjawab" id="tanggungjawab"
+                            value="3">Mengerjakan tugas yang diberikan terkadang terlambat dan kurang sesuai dengan
+                        instruksi yang diberikan namun masih dalam batas yang wajar
+                    </label>
+                    <label for="" style="font-size: 90%; display: block;">
+                        <input class="me-2 mt-2" type="radio" name="tanggungjawab" id="tanggungjawab" value="2">
+                        Tugas yang diberikan dikerjakan namun kerap kali terlambat dan banyak ditemui kesalahan
+                    </label>
+                    <label for="" style="font-size: 90%; display: block;">
+                        <input class="me-2 mt-2" type="radio" name="tanggungjawab" id="tanggungjawab" value="1">
+                        Sering kali tidak mengerjakan tugas yang diberikan
+                    </label>
+                </fieldset>
+                <button type="button" class="btn btn-primary mt-4 d-flex justify-content-center mx-auto"
+                    style="background: #488DF8; align-items: center; border-radius: 30px;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

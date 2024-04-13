@@ -1,0 +1,41 @@
+.navbar {
+    background: linear-gradient(307deg, rgba(188, 255, 187, 1) 13%, rgba(58, 134, 255, 1) 100%);
+}
+
+.nav-title {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Open Sans Condensed';
+    color: white;
+    margin-right: auto;
+    letter-spacing: 2px;
+}
+
+.dropdown-menu {
+    right: 0;
+    left: auto;
+    background: linear-gradient(180deg, #6CAFFF 0%, #FFFF 100%);
+}
+
+main {
+    padding: 4%;
+    margin-top: -24px;
+}
+
+.konten {
+    color: #000;
+    font-family: 'Poppins';
+    margin-top: 1.5%;
+    margin-left: 1%;
+    font-style: normal;
+
+}
+
+.table {
+    margin-top: 5%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 88%;
+    border-radius: 10px;
+    text-align: center;
+}

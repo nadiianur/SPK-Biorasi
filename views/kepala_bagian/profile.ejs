@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/kepala_bagian/akumulasi.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:700' rel='stylesheet'>
+    <script src="/js/profileKabag.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Ninth navbar example">
+        <div class="container-xl">
+            <a href="/dashboardKabag"
+                class="navbar-brand d-flex align-items-center mt-1 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="/pemprovsumbar.png" width="42" height="42" class="img-fluid" alt="Pemprov Sumbar">
+                <span class="fs-4"></span>
+                <h6 class="mt-1 ms-2 nav-title">
+                    BIORASI
+                    <br><span style="font-size: 14px;">Pegawai Terbaik</span></h6>
+            </a>
+            <div class="dropdown text-end">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="/user.png" alt="User Image" width="50%" height="50%">
+                </a>
+                <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="/dashboardKabag">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a type="button"  class="dropdown-item" id="logout">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h5 class="mt-2 ms-3" style="font-weight: 800;">Profil Saya</h5>
+        <p class="mt-2 ms-3">Silahkan lakukan perubahan pada profile </p>
+        <div class="main-container">
+            <form class="row gx-3 gy-2 align-items-center" enctype="multipart/form-data">
+                <div class="col-sm-4 align-self-start" style="position: relative; margin-top: 8%;">
+                    <img src="/user.png" class="img-fluid profile img-thumbnail rounded-circle me-2" alt="profile"
+                        id="pp">
+                    <div class="position-absolute top-0 translate-midle-x" style="margin-left: 43%; z-index: 11;">
+                        <input type="file" id="fileInput" style="display: none;" />
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACjUlEQVR4nO2Yu2tUQRTGf9H4QHM1gqig4CtkEQkmgoUQG/8AKxFstFA7H/gsZNH8A4JFGmtBVJIqID5wK412KQSNhWAjKJgFE4MPjMrAWVjGs3tn78zdvZH54DR7d85839xvzpm5EBEREfE/YTdwDXgMfAC+AfPAe6ACXAf2UUDsB54CfxzjJXCIAmAFMAostEC+PsaADZ0ivx54kZF4fbwD+tpNfh0wpZD5DtwGDgNbgZXAamAncBS4A/xUxn0EtrWL/BLggULiPrDFYbwRNq6MnwJW5UHYTHgemABeAVVrYuP/0xnyngN+W7luhCQ+0GCl7TjjMccFK9cPoN+X+FJZiV8O5I0VfDFh5bzlk2wt8NCxenwFNgcQsN1arC+y8VtGt3RQjewj4ARQkuSm/ieEw5g134xsalO1jrgKuqkQfwMMkz+Op7ztz8BZYFmjBHuVilARS/lgRCINOxxt+6xR536irHwI8rV8Iw69Zb6Fzr2xfnBJ+dNwQPKuIg5K6V4jnt8DXJUubed6DiyvDbyibNjQ5F1FaOgB7iq5LjWyj6k2eZD3EdGliJip2fyt9aCUI3kfEYlip2Pmwaz1Y5IzeR8RZe0k4CsgC/msIgat8dMhLWTDJhsCiZVzVtvEJxebgMuBy2ieAgY1C/Urkx0oqICytolRTqFGWW/BBCTAJ62MGgwpn0YqniJCCugC7ln5qvZ5TTtOT3vYKZSARCFv4qJ2obErUi2MxU4Bu+RskreAHnFFWbGNiUm5VP2D3iYi0qJVAVmbn/nOuqmZ+m6x00IBBUymka/HUJM7crsFVMXzqm3S0CfNzjS418BcGwTMya1wXEql7+2wo1WoY4gCOo1F/wYiIiIiSMVfD1cf3ZqWOvIAAAAASUVORK5CYII="
+                            onclick="document.getElementById('fileInput').click();">
+                    </div>
+                </div>
+                <div class="col-sm-7 me-3">
+                    <h3 style="font-weight: bolder;text-align: center;" id="namaKabag">Kepala Bagian</h3>
+                    <label for="inputNama" class="form-label mt-3">Nama</label>
+                    <input type="text" class="form-control in-profile" id="nama" aria-describedby="textHelp" required>
+                    <label for="inputNip" class="form-label mt-3">NIP</label>
+                    <input type="text" class="form-control in-profile" id="nip" aria-describedby="textHelp" required>
+                    <label for="inputEmail" class="form-label mt-3">Email</label>
+                    <input type="email" class="form-control in-profile" id="email" aria-describedby="emailHelp">
+                    <div class="row gx-3 gy-2 align-items-center mt-2">
+                        <div class="col-sm-6">
+                            <label for="inputGolongan" class="form-label mt-2">Golongan</label>
+                            <select class="form-select" aria-label="Default select example" id="golongan"
+                                style="border-radius: 10px; width: 100%; color: #6C757D;">
+                                <option disabled selected>Pilih Golongan</option>
+                                <option value="IV/c">IV/c</option>
+                                <option value="IV/b">IV/b</option>
+                                <option value="IV/a">IV/a</option>
+                                <option value="III/d">III/d</option>
+                                <option value="III/c">III/c</option>
+                                <option value="III/b">III/b</option>
+                                <option value="III/a">III/a</option>
+                                <option value="II/a">II/a</option>
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputJenisKelamin" class="form-label mt-2">Jenis Kelamin</label>
+                            <select class="form-select" aria-label="Default select example" id="jenis_kelamin"
+                                style="border-radius: 10px; width: 100%; color: #6C757D;">
+                                <option disabled selected>Pilih Jenis Kelamin</option>
+                                <option value="Perempuan">Perempuan</option>
+                                <option value="Laki- laki">Laki- laki</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row gx-3 gy-2 align-items-center mt-2 mb-2">
+                        <div class="col-sm-6">
+                            <label for="inputJenisKelamin" class="form-label mt-2">Password Lama</label>
+                            <input type="password" class="form-control in-profile" id="password"
+                                aria-describedby="passwordlHelp" placeholder="Masukkan Password Lama">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputJenisKelamin" class="form-label mt-2">Password Baru</label>
+                            <input type="password" class="form-control in-profile" id="newPassword"
+                                aria-describedby="passwordlHelp" placeholder="Masukkan Password Baru">
+                        </div>
+                    </div>
+                    <div class="text-center mb-4 mt-4">
+                        <button type="submit" class="btn btn-warning save">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>

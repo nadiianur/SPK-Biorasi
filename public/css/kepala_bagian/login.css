@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins';
+  box-sizing: border-box;
+  background: #F9FAFC;
+  overflow-x: hidden;
+  background-color: #F0FFFD;
+}
+
+.main{
+    padding: 2% 14% 24% 14%; 
+    z-index: 100;
+}
+
+.judul-txt{
+    font-weight: 900; 
+    font-size: 32px; 
+    letter-spacing: 3.2px; 
+    text-align: center;
+    padding: 0 4% 4% 4%;
+    text-shadow: 0 6px 10px rgba(0, 0, 0, 0.364);
+}
+
+.input-txt{
+    background-color: #EBEBEB; 
+    border-radius: 20px; 
+    border-color: #EBEBEB;
+}
+
+.ic-img{
+    padding-top: 16%;
+    z-index: 10;
+    margin-right: auto;
+}

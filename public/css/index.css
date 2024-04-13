@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+  font-family: 'Poppins';
+  overflow-x: hidden;
+}
+
+.main{
+    background: #F0FFFD;
+    padding: 2%;
+}
+
+.card{
+    height: 100%;
+    border-radius: 10px;
+    padding: 4%;
+}
+
+.bg-image {
+  position: fixed; 
+  width: 90%; 
+  bottom: 0; 
+  opacity: 0.2; 
+  margin-top: 10%; 
+  left: 50%; 
+  transform: translateX(-50%); 
+}
+
+.title-apk{
+  font-size: 3rem; 
+  font-weight:400; 
+  font-family: 'Berlin Sans FB'; 
+  letter-spacing: 0.1rem; 
+  text-shadow: 0 6px 8px rgba(78, 20, 20, 0.364);
+}
+
+.card-txt{
+  text-decoration: none; 
+  color: black;
+}

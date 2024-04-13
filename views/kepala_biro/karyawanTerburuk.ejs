@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pegawai Terburuk</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/kepala_biro/karyawanTerbaik.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:700' rel='stylesheet'>
+    <script src="/js/karyawanTerburukKabir.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ps-4 pe-4" aria-label="Ninth navbar example">
+        <div class="container-xl">
+            <a href="/dashboardKabir"
+                class="navbar-brand d-flex align-items-center mt-1 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="/pemprovsumbar.png" width="42" height="42" class="img-fluid" alt="Pemprov Sumbar">
+                <span class="fs-4"></span>
+                <h6 class="mt-1 ms-2 nav-title">
+                    BIORASI
+                    <br><span style="font-size: 14px;">Pegawai Terbaik</span></h6>
+            </a>
+            <div class="dropdown text-end">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="/user.png" alt="User Image" width="50%" height="50%">
+                </a>
+                <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="/dashboardKabir">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="/profileKabir">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a type="button"  class="dropdown-item" id="logout">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="konten">
+            <h3 class="fw-bold">Pegawai Terburuk</h3>
+            <p>Menampilkan data Pegawai terburuk per periode</p>
+        </div>
+        <div style="display: flex; justify-content: center">
+            <table class="table mt-5">
+                <thead style="background-color: #FFB500;">
+                    <tr>
+                        <th scope="col" style="border-top-left-radius: 10px;">No</th>
+                        <th scope="col">NIP</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col" style="border-top-right-radius: 10px;">Periode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td colspan="4" class="text-center">Silahkan Pilih Bulan Periode Penilaian</td>
+                    <!-- table body -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #FFFF 90%, #C5D9FF 110%);
+}
+
+.navbar{
+    background: linear-gradient(90deg, #61A0FF 1.5%, #B1EFCA 92.13%);
+}
+
+.dropdown-menu{
+    background: linear-gradient(180deg, #6CAFFF 1.5%, #FFFFFF 92.13%); 
+    border-radius: 8%;
+}
+
+.nav-title{
+    margin-left: 8px; 
+    font-size: 16px; 
+    font-weight: 700; 
+    font-family: 'Open Sans Condensed'; 
+    text-shadow: 0 6px 10px rgba(0, 0, 0, 0.364); 
+    color: white;
+}

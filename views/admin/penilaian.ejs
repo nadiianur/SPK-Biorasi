@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Kriteria Penilaian</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:300' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/admin/dashboard.css">
+
+    <script src="/js/penilaian.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body class="body">
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-right d-flex" style="margin-left: auto;">
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                        id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>Admin</strong>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2"
+                        style="background: linear-gradient(180deg, #6CAFFF 1.5%, #FFFFFF 92.13%);">
+                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                        <li>
+                            <hr>
+                        </li>
+                        <li><a type="button" class="dropdown-item" id="logout">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" style="z-index: 20;">
+            <div class="sidebar-title mx-auto" style="font-family: 'Open Sans Condensed';">
+                <span class="material-icons-outlined" onclick="closeSidebar()" style="color: #EBEBEB;">close</span>
+                <a href="dashboard.html"
+                    class="d-flex align-items-center mt-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="/pemprovsumbar.png" width="60" height="32" class="img-fluid" alt="...">
+                    <h6 class="mt-2"
+                        style="color: white; margin-left: 10px; font-size: 24px; letter-spacing: 2px; font-weight: bolder; ">
+                        BIORASI<br><span style="font-size: 16px; font-weight:bold;">Pegawai Terbaik</span> </h6>
+                </a>
+            </div>
+            <hr class="mb-4">
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="sidebar-list-item">
+                    <a href="/dashboardAdmin" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Dashboard
+                    </a>
+                </li>
+                <li style="padding: 2%;">
+                    <a href="/penilaian" class="nav-link dashboard mt-1" aria-current="page"
+                        style="letter-spacing: 0.8px; font-weight: 700;font-size: 14px;">
+                        Kriteria Penilaian
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/pegawai" class="nav-link link-dark mt-1" style="letter-spacing: 0.8px; font-weight: 700;">
+                        Pegawai
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/generatePegawai" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Generate Pegawai
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/statusPenilaian" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Status Penilaian
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/akumulasiHasil" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Akumulasi Hasil
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/pegawaiTerbaikViews" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Pegawai Terbaik
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/pegawaiTerburukViews" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Pegawai Terburuk
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-container">
+            <h3 class="fw-bold">Kriteria Penilaian</h3>
+            <p>Berikut adalah data dari kriteria penilaian</p>
+
+            <!-- Modal Add Kriteria -->
+            <button type="button" class="btn d-flex mt-5" data-bs-toggle="modal" data-bs-target="#modalTambahKriteria"
+                data-bs-whatever="@mdo"
+                style="background: #408AFF; color: #FFFFFF; margin-left: auto; border-radius: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFF">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
+                &nbsp; Tambah Kriteria Penilaian</button>
+
+            <div class="modal fade" id="modalEditKriteria" tabindex="-1" aria-labelledby="modalEditKriteriaLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalEditKriteriaLabel">Edit Kriteria</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editKriteria">
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Kriteria</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="kriteriaEdit" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Bobot</label>
+                                    <input type="number" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="bobotEdit" required>
+                                </div>
+                                <label for="message-text" class="col-form-label text-start">Sub Penilaian</label>
+                                <div class="mb-3 text-end">
+                                    <label class="mt-0 mb-0 text-end" style="font-size: 10px; margin-left: auto;">Sub
+                                        penilaian 1 (poin 5)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian1Edit"
+                                        required>
+
+                                    <label class="mt-2 mb-0 text-end" style="margin-left: auto; font-size: 10px;">Sub
+                                        penilaian 2 (poin 4)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian2Edit"
+                                        required>
+
+                                    <label class="mt-2 mb-0 text-end" style="margin-left: auto; font-size: 10px;">Sub
+                                        penilaian 3 (poin 3)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian3Edit"
+                                        required>
+
+                                    <label class="mt-2 mb-0 text-end" style="margin-left: auto; font-size: 10px;">Sub
+                                        penilaian 4 (poin 2)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian4Edit"
+                                        required>
+
+                                    <label class="mt-2 mb-0 text-end" style="margin-left: auto; font-size: 10px;">Sub
+                                        penilaian 5 (poin 1)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian5Edit"
+                                        required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button type="submit" class="btn btn-warning align-items-center w-25"
+                                style="color: white; align-items: center; border-radius: 30px;"
+                                id="simpanEditKriteria">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalTambahKriteria" tabindex="-1" aria-labelledby="modalTambahKriteriaLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTambahKriteriaLabel">Tambah Kriteria</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="tambahKriteria">
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Kriteria</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="kriteria" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Bobot</label>
+                                    <input type="number" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="bobot" required>
+                                </div>
+                                <label for="message-text" class="col-form-label text-start">Sub Penilaian</label>
+                                <div class="mb-3 text-end">
+                                    <label class="mt-0 mb-0 text-end" style="font-size: 10px; margin-left: auto;">Sub
+                                        penilaian 1 (poin 5)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian1" required>
+
+                                    <label class="mt-2 mb-0 text-end" style="margin-left: auto; font-size: 10px;">Sub
+                                        penilaian 2 (poin 4)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian2" required>
+
+                                    <label class="mt-2 mb-0 text-end" style="margin-left: auto; font-size: 10px;">Sub
+                                        penilaian 3 (poin 3)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian3" required>
+
+                                    <label class="mt-2 mb-0 text-end" style="margin-left: auto; font-size: 10px;">Sub
+                                        penilaian 4 (poin 2)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian4" required>
+
+                                    <label class="mt-2 mb-0 text-end" style="margin-left: auto; font-size: 10px;">Sub
+                                        penilaian 5 (poin 1)</label>
+                                    <input type="text" class="form-control"
+                                        style="background: #EBEBEB; border-radius: 30px;" id="sub_penilaian5" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary align-items-center w-25"
+                                style="background: #488DF8; align-items: center; border-radius: 30px;"
+                                id="simpanKriteria">Tambah</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table mt-5 text-center table-borderless" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <thead>
+                    <tr style="background-color: #FFB500;">
+                        <th class="col-1" style="border-top-left-radius: 14px;">No</th>
+                        <th class="col-5">Kriteria</th>
+                        <th class="col-3">Bobot Penilaian</th>
+                        <th class="col-3" style="border-top-right-radius: 14px;">Tindakan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td colspan="4" class="text-center">Belum Ada Data Kriteria Penilaian yang Ditambahkan</td>
+                    <!-- Kriteria Penilaian -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+    <script src="/js/scripts.js"></script>
+
+</body>
+
+</html>

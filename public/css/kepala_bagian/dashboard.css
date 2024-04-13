@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins';
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #FFFF 90%, #C5D9FF 110%);
+  background-attachment: fixed;
+}
+
+.navbar{
+    background: linear-gradient(307deg, rgba(188,255,187,1) 13%, rgba(58,134,255,1) 100%);
+}
+
+.nav-title{
+    font-size: 16px; 
+    font-weight: 700; 
+    font-family: 'Open Sans Condensed'; 
+    color: white; 
+    margin-right: auto; 
+    letter-spacing: 2px;
+}
+
+main{
+    padding: 3% 16% 4% 16%
+}
+
+.dropdown-menu {
+    right: 0;
+    left: auto;
+    background: linear-gradient(180deg, #6CAFFF 0%, #FFFF 100%);
+}
+
+.card{
+    height: 100%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body{
+    padding: 6%; 
+    height: 80%;
+}
+
+.card-title{
+    font-size: 20px; 
+    font-weight: 600;
+}
+
+.card-text{
+    font-size: 14px;
+}
+
+.main-title{
+    font-weight: 600; 
+    font-size: 30px;
+}
+
+.sub-title{
+    font-size: 1.3rem; 
+    margin-left: 10%; 
+    margin-right: 10%;
+}
+
+.ic-card{
+    margin-top: 6%; 
+    margin-right: 3%;
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Status Penilaian</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:300' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/admin/dashboard.css">
+
+    <script src="/js/statusPenilaian.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="body">
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-right d-flex" style="margin-left: auto;">
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                        id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/profile.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>Admin</strong>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2"
+                        style="background: linear-gradient(180deg, #6CAFFF 1.5%, #FFFFFF 92.13%);">
+                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                        <li>
+                            <hr>
+                        </li>
+                        <li><a type="button"  class="dropdown-item" id="logout">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" style="z-index: 20;">
+            <div class="sidebar-title mx-auto" style="font-family: 'Open Sans Condensed';">
+                <span class="material-icons-outlined" onclick="closeSidebar()" style="color: #EBEBEB;">close</span>
+                <a href="dashboard.html"
+                    class="d-flex align-items-center mt-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="/pemprovsumbar.png" width="60" height="32" class="img-fluid" alt="...">
+                    <h6 class="mt-2"
+                        style="color: white; margin-left: 10px; font-size: 24px; letter-spacing: 2px; font-weight: bolder; ">
+                        BIORASI<br><span style="font-size: 16px; font-weight:bold;">Pegawai Terbaik</span> </h6>
+                </a>
+            </div>
+            <hr class="mb-4">
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="sidebar-list-item">
+                    <a href="/dashboardAdmin" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/penilaian" class="nav-link link-dark mt-1" style="letter-spacing: 0.8px; font-weight: 700;">
+                        Kriteria Penilaian
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/pegawai" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Pegawai
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/generatePegawai" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Generate Pegawai
+                    </a>
+                </li>
+                <li style="padding: 2%;">
+                    <a href="/statusPenilaian" class="nav-link dashboard mt-1" aria-current="page"
+                        style="letter-spacing: 0.8px; font-weight: 700;font-size: 14px;">
+                        Status Penilaian
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/akumulasiHasil" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Akumulasi Hasil
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/pegawaiTerbaikViews" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Pegawai Terbaik
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="/pegawaiTerburukViews" class="nav-link link-dark mt-1"
+                        style="letter-spacing: 0.8px; font-weight: 700;">
+                        Pegawai Terburuk
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-container">
+            <h3 class="fw-bold">Status Penilaian Pegawai</h3>
+            <p>Berikut adalah status pegawai  terkait aktivitas penilaian.</p>
+
+            <div style="display: flex; align-items: center; flex-direction: row;">
+                <select class="form-select d-flex mt-5 me-2" aria-label="Default select example"
+                    style="background-color: #EBEBEB; border-radius: 8px; width: 300px;  margin-left: auto;"
+                    id="bulanPenilaian">
+                    <option selected>Pilih Bulan</option>
+                    <option value="Januari">Januari</option>
+                    <option value="Februari">Februari</option>
+                    <option value="Maret">Maret</option>
+                    <option value="April">April</option>
+                    <option value="Mei">Mei</option>
+                    <option value="Juni">Juni</option>
+                    <option value="Juli">Juli</option>
+                    <option value="Agustus">Agustus</option>
+                    <option value="September">September</option>
+                    <option value="Oktober">Oktober</option>
+                    <option value="November">November</option>
+                    <option value="Desember">Desember</option>
+                </select>
+            </div>
+
+            <table class="table table-borderless mt-5" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <thead>
+                    <tr style="background-color: #FFB500;">
+                        <th class="col-1" style="border-top-left-radius: 14px;">No</th>
+                        <th class="col-4">NIP</th>
+                        <th class="col-4">Nama</th>
+                        <th class="col-3" style="border-top-right-radius: 14px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td colspan="4" class="text-center">Semua pegawai telah melakukan penilaian</td>
+                    <!-- Data status Penilaian -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+    <script src="/js/scripts.js"></script>
+
+</body>
+
+</html>

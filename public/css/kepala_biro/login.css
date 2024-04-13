@@ -1,0 +1,48 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins';
+    background: linear-gradient(180deg, #8CB9FF 1.5%, #DFFFD0 92.13%);
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 0;
+}
+
+.card-login {
+    padding: 4% 4% 12% 4%;
+    background: #F0FFFD;
+    border-radius: 32px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.364);
+    width: 75%;
+    margin-left: 2rem;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 3.2px;
+    padding: 0 8% 0 8%;
+    text-shadow: 0 6px 10px rgba(0, 0, 0, 0.364);
+}
+
+.form-control {
+    background-color: #EBEBEB;
+    border-radius: 20px;
+    border-color: #EBEBEB;
+}
+
+.btn-lg {
+    background-color: #FA5F00;
+    border-radius: 30px;
+    color: white;
+    width: 100px;
+    font-weight: 800;
+    margin-top: 4%;
+}
